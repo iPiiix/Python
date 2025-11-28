@@ -1,0 +1,58 @@
+# Ejercicio 1: Crear y escribir en un archivo
+# Crear un archivo de texto llamado "saludo.txt" y escribir en él el texto "Hola, este es mi primer archivo en Python."
+with open("saludo.txt", "w") as archivo:
+    archivo.write("Hola, este es mi primer archivo en Python.")
+
+# Ejercicio 2: Leer el contenido completo
+with open("saludo.txt", "r") as archivo:
+    contenido = archivo.read()
+    print(contenido)    
+
+# Ejercicio 3: Leer línea por línea
+with open("saludo.txt", "r") as archivo:
+    for linea in archivo:
+        print(linea, end="")
+
+# Ejercicio 4: Añadir texto al archivo
+with open("saludo.txt", "a") as archivo:
+    archivo.write("\nTexto añadido al archivo.")
+
+# Ejercicio 5: Comprobar si un archivo existe
+import os
+if os.path.exists("saludo.txt"):
+    print("El archivo saludo.txt existe.")
+
+# Ejercicio 6: Contar lineas en un archivo
+with open("saludo.txt", "r") as archivo:
+    lineas = archivo.readlines()
+    print(f"El archivo tiene {len(lineas)} líneas.")
+
+# Ejercicio 7: Copiar el contenido a otro archivo
+with open("saludo.txt", "r") as archivo_origen:
+    contenido = archivo_origen.read()
+
+with open("copia_saludo.txt", "w") as archivo_destino:
+    archivo_destino.write(contenido)
+
+# Ejercicio 8: Leer y mostrar en mayúsculas
+with open("saludo.txt", "r") as archivo:
+    contenido = archivo.read()
+    print(contenido.upper())
+
+# Ejercicio 9: Manejo de errores 
+try:
+    with open("archivo_inexistente.txt", "r") as archivo:
+        contenido = archivo.read()
+except FileNotFoundError:
+    print("El archivo no existe.")
+
+# Ejercicio 10: Procesar datos
+with open("sumaTotal.txt", "w") as archivo:
+    archivo.write("10\n20\n30\n40\n")
+with open("sumaTotal.txt", "r") as archivo:
+    total = 0
+    for linea in archivo:
+        total += int(linea.strip())
+    print(f"La suma total es: {total}")
+    
+
