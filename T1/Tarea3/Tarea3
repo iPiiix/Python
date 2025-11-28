@@ -1,0 +1,160 @@
+# Ejercicio 1
+# Escribir un programa que pregunte al usuario los números ganadores de la lotería primitiva, 
+# los almacene en una lista y los muestre por pantalla ordenados de menor a mayor.
+
+ganadores = []
+while True:
+    numero = int(input("Introduce los numeros (0 para terminar): "))
+    if numero == 0:
+        break
+    ganadores.append(numero)
+
+ganadores.sort()
+print("Numeros ganadores ordenados: ", ganadores)
+
+
+# Ejercicio 2
+# Escribir un programa que almacene en una lista los números del 
+# 1 al 10 y los muestre por pantalla en orden inverso separados por comas.
+
+numeros = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
+numeros.reverse()
+print(numeros)
+
+
+# Ejercicio 3
+# Escribir un programa que pida 
+# al usuario una palabra y muestre por pantalla el número de veces que contiene cada vocal.
+
+palabra = input("Introduce una palabra: ").lower()
+vocales = "aeiou"
+if palabra.isalpha():
+    for vocal in vocales:
+        print(f"La vocal {vocal} aparece {palabra.count(vocal)} veces")
+else:
+    print("Por favor, introduce solo letras.")
+
+
+# Ejercicio 4
+# 50, 75, 46, 22, 80, 65, 8, y muestre por pantalla el menor y el mayor de los precios.
+
+lista = [50, 75, 46, 22, 80, 65, 8]
+menor = min(lista)
+mayor = max(lista)
+print("El numero menor es: ", menor, 
+      "\nEl numero mayor es: ", mayor)
+
+
+# Ejercicio 5
+# Escribir un programa que guarde en una variable el diccionario {'Euro':'€', 'Dollar':'$', 'Yen':'¥'}, 
+# pregunte al usuario por una divisa y muestre su símbolo o un mensaje de aviso si la divisa no está 
+# en el diccionario.
+
+diccionario = {'Euro':'€', 'Dollar':'$', 'Yen':'¥'}
+cambioDivisa = input("Ingrese la divisa: ")
+
+if cambioDivisa in diccionario:
+    print(diccionario[cambioDivisa])
+else: 
+    print("Divisa no reconocida")
+
+
+# Ejercicio 6
+# Escribir un programa que guarde en un diccionario los precios de las frutas de la tabla, 
+# pregunte al usuario por una fruta, un número de kilos y muestre por pantalla el precio de ese número de kilos de fruta. 
+# Si la fruta no está en el diccionario debe mostrar un mensaje informando de ello.
+
+precios_frutas = {'Plátano': 1.35, 'Manzana': 0.80, 'Pera': 0.85, 'Naranja': 0.70}
+pregunta_fruta = input("¿Qué fruta quieres? ").capitalize()
+
+if pregunta_fruta in precios_frutas:
+    try:
+        kilos = float(input("¿Cuántos kilos quieres? "))
+        if kilos < 0:
+            print("Por favor, ingresa un número positivo de kilos.")
+        else:
+            precio_total = precios_frutas[pregunta_fruta] * kilos
+            print(f"El precio de {kilos} kilos de {pregunta_fruta} es: {precio_total:.2f} euros.")
+    except ValueError:
+        print("Por favor, ingresa un número válido de kilos.")
+else:
+    print("Lo sentimos, no tenemos esa fruta.")
+
+
+# Ejercicio 7
+# Escribir un programa que cree un diccionario simulando una 
+# cesta de la compra. El programa debe preguntar el artículo y 
+# su precio y añadir el par al diccionario, hasta que el 
+# usuario decida terminar. Después se debe mostrar por 
+# pantalla la lista de la compra y el coste total, con el siguiente 
+# formato.
+
+cesta = {}
+while True:         
+    articulo = input("Que articulo quiere? Para terminar escriba 'fin': ")
+    if articulo.lower() == 'fin':
+        break
+    try:
+        precio = float(input("Cual es el precio? "))
+        cesta[articulo] = precio
+    except ValueError:
+        print("Por favor, ingrese un precio válido.")
+total = sum(cesta.values())
+print("Lista de la compra:")
+for articulo, precio in cesta.items():
+    print(f"{articulo}: {precio:.2f} euros")
+print(f"Coste total: {total:.2f} euros")
+
+
+# Ejercicio 8
+# Escribir un programa que gestione las facturas pendientes de cobro de una empresa. Las facturas se almacenarán en un diccionario 
+# donde la clave de cada factura será el número de factura y el valor el coste de la factura. El programa debe 
+# preguntar al usuario si quiere añadir una nueva factura, pagar una existente o terminar. Si desea añadir una nueva factura se preguntará por el número de factura y su coste 
+# y se añadirá al diccionario. Si se desea pagar una factura se preguntará por el número de 
+# factura y se eliminará del diccionario. Después de cada operación el programa debe mostrar por pantalla la cantidad cobrada hasta el momento y la cantidad pendiente de cobro.
+
+facturas = {}
+total_cobrado = 0.0
+while True:
+    accion = input("¿Quieres añadir una nueva factura (a), pagar una existente (p) o terminar (t)? ").lower()
+    
+    if accion == 'a':
+        try:
+            id_factura = input("Ingrese el ID de la factura: ")
+            precio = float(input("Ingrese el precio de la factura: "))
+            facturas[id_factura] = precio
+            print("Factura añadida exitosamente.")
+        except ValueError:
+            print("Error: El precio debe ser un número.")
+
+    elif accion == 'p':
+        id_factura = input("Ingrese el ID a pagar: ")
+        if id_factura in facturas:
+            precio_pagado = facturas.pop(id_factura)
+            total_cobrado += precio_pagado
+            print(f"Factura {id_factura} pagada.")
+        else:
+            print("Error: La factura no existe.")
+    
+    elif accion == 't':
+        print("Saliendo del programa.")
+        break
+
+    else:
+        print("Acción no reconocida. Por favor, elige 'a', 'p' o 't'.")
+        continue
+
+
+# Ejercicio 9
+# Escribir un programa que almacene el diccionario con los créditos de las 
+# asignaturas de un curso {'Matemáticas': 6, 'Física': 4, 'Química': 5} y después muestre 
+# por pantalla los créditos de cada asignatura en el formato <asignatura> tiene <créditos> 
+# créditos, donde <asignatura> es cada una de las asignaturas del curso, y <créditos> son 
+# sus créditos. Al final debe mostrar también el número total de créditos del curso.
+
+asignaturas = {'Matemáticas': 6, 'Física': 4, 'Química': 5}
+total_creditos = 0
+for asignatura, creditos in asignaturas.items():
+    print(f"{asignatura} tiene {creditos} créditos")
+    total_creditos += creditos
+print(f"El número total de créditos del curso es: {total_creditos}")

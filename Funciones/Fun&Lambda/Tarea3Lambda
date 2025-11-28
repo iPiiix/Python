@@ -1,0 +1,28 @@
+lista = [1, 2, 3, 4, 5]
+numero = 3
+
+# 1 
+def comprobar_lista(lista, numero):
+    estaLista = numero in lista
+    longitud = len(lista) == numero
+    return (estaLista, longitud)
+
+print("Comprobar si", numero, "está en la lista", lista, ":", comprobar_lista(lista, numero))
+
+# 2
+
+def mayor (lista):
+    return max(lista)
+
+print("El mayor de la lista", lista, "es:", mayor(lista))
+
+def menor (lista):
+    return min(lista)
+print("El menor de la lista", lista, "es:", menor(lista))
+
+# 3
+def abecedario_reves():
+    abecedario = 'abcdefghijklmnopqrstuvwxyz'
+    return ''.join(reversed(abecedario))
+
+print("El abecedario al revés es:", abecedario_reves())

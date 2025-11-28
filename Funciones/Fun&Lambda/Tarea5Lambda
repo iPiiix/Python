@@ -1,0 +1,37 @@
+# Doblar números
+# Crea una lista con los números del 1 al 10.
+# Usa una función lambda y map() para generar una nueva lista con los números
+# multiplicados por 2.
+
+def doblar_numeros():
+    numeros = list(range(1, 11))
+    resultado = list(map(lambda x: x * 2, numeros))
+    return resultado
+
+# Filtrar números pares
+# Dada una lista de números enteros, utiliza una función lambda junto con filter() para
+# obtener solo los números pares.
+def filtrar_pares(lista):
+    resultado = list(filter(lambda x: x % 2 == 0, lista))
+    return resultado
+
+# Ordenar tuplas por el segundo valor
+# Tienes una lista de tuplas con el formato [(nombre, edad), ...].
+# Usa sorted() con una lambda para ordenar la lista por edad.
+def ordenar_por_edad(tuplas):
+    resultado = sorted(tuplas, key=lambda x: x[1])
+    return resultado
+
+# Transformar texto en mayúsculas
+# Dada una lista de palabras, usa map() y lambda para devolver una nueva lista con todas
+# en mayúsculas.
+def transformar_mayusculas(palabras):
+    resultado = list(map(lambda x: x.upper(), palabras))
+    return resultado
+    
+# Filtrar y transformar a la vez
+# A partir de una lista de números, usa una combinación de filter() y map() con funciones
+# lambda para: o Filtrar los números impares. o Multiplicarlos por 3.
+def filtrar_transformar(lista):
+    resultado = list(map(lambda x: x * 3, filter(lambda x: x % 2 != 0, lista)))
+    return resultado

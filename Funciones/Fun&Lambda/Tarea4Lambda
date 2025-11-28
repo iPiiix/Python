@@ -1,0 +1,101 @@
+# Suma de dos números
+def sumaNumeros(a, b):
+    return a + b
+
+# Número par o impar
+def es_par(numero):
+    return numero % 2 == 0
+
+# Área de un círculo
+def aera_ciruclo(radio):
+    import math
+    return math.pi * radio ** 2
+
+# Factorial de un número
+def factorial(n):
+    if n < 0:
+        return None
+    elif n == 0 or n == 1:
+        return 1
+    else:
+        resultado = 1
+        for i in range(2, n + 1):
+            resultado *= i
+        return resultado
+
+# Máximo de tres números 
+def maximo_tres(a, b, c):
+    a = 10
+    b = 20
+    c = 15
+    return max(a, b, c)
+
+# Contar vocales en una cadena
+def contar_vocales(cadena):
+    vocales = "aeiouAEIOU"
+    contador = 0
+    for char in cadena:
+        if char in vocales:
+            contador += 1
+    return contador
+
+# Palabra más larga 
+def palabra_mas_larga(frase):
+    palabras = frase.split()
+    palabra_mas_larga = ""
+    for palabra in palabras:
+        if len(palabra) > len(palabra_mas_larga):
+            palabra_mas_larga = palabra
+    return palabra_mas_larga
+
+# Invertir una texto
+def invertir(texto):
+    texto = "Python"
+    return texto[::-1]
+
+# Eliminar duplicados
+def eliminar_duplicados(lista):
+    lista = [1, 2, 2, 3, 4, 4, 5]
+    return list(set(lista))
+
+# Palindromo
+def es_palindromo(texto):
+    texto = texto.replace(" ", "").lower()
+    texto = "Hola que tal estas aloh"
+    return texto == texto[::-1]
+
+# Frecuencia de palabras
+def frecunecia_palabras(texto):
+    texto = "hola hola adios"
+    palabras = texto.split()
+    frecuencia = {}
+    for palabra in palabras:
+        if palabra in frecuencia:
+            frecuencia[palabra] += 1
+        else:
+            frecuencia[palabra] = 1
+    return frecuencia
+
+# Gestor de notas
+def gestor_notas():
+    notas = {}
+    while True:
+        nombre = input("Introduce el nombre del alumno [FIN para terminar el programa]: ")
+        if nombre.lower() == 'fin':
+            break
+        try:
+            nota = float(input(f"Introduce la nota de {nombre}: "))
+            notas[nombre] = nota
+        except ValueError:
+            print("Error.")
+    
+    if not notas:
+        print("No se han introducido notas.")
+        return
+    
+    nota_media = sum(notas.values()) / len(notas)
+    alumno_mejor_nota = max(notas, key=notas.get)
+    
+    print(f"La nota media es: {nota_media:.2f}")
+    print(f"El alumno con la nota más alta es: {alumno_mejor_nota} con una nota de {notas[alumno_mejor_nota]:.2f}")
+

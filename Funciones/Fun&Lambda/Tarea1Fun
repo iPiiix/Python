@@ -1,0 +1,82 @@
+'''
+Escribir una función que muestre por pantalla el saludo 
+¡Hola amiga! cada vez que se la invoque.
+'''
+def saludar():
+    print("¡Hola amiga!")
+
+'''
+Escribir una función a la que se le pase una cadena <nombre> y 
+muestre por pantalla el saludo ¡hola <nombre>!.
+'''
+def saludar_nombre(nombre):
+    print(f"¡Hola {nombre}!")
+
+
+'''
+Escribir una función que reciba un número entero positivo
+y devuelva su factorial.
+'''
+def factorial(n):
+    if n < 0:
+        return "El número debe ser positivo."
+    resultado = 1
+    for i in range(1, n + 1):
+        resultado *= i
+    return resultado
+
+'''
+Escribir una función que calcule el área de un círculo y otra 
+que calcule el volumen de un cilindro usando la primera función.
+'''
+import math
+def area_circulo(radio):
+    return math.pi * radio ** 2
+
+def volumen_cilindro(radio, altura):
+    return area_circulo(radio) * altura
+
+'''
+Escribir una función que calcule el máximo común divisor de dos 
+números y otra que calcule el mínimo común múltiplo.
+'''
+def mcd(a, b):
+    while b != 0:
+        a, b = b, a % b
+    return a
+
+def mcm(a, b):
+    return abs(a * b) // mcd(a, b)
+
+'''
+Escribir una función que convierta un número decimal en binario 
+y otra que convierta un número binario en decimal.
+'''
+def decimal_a_binario(n):
+    if n == 0:
+        return "0"
+    resultado = ""
+    while n > 0:
+        resultado = str(n % 2) + resultado
+        n //= 2
+    return resultado
+
+def binario_a_decimal(b):
+    return int(b, 2)
+
+'''
+Escribir una función que cuente los caracteres de una cadena
+'''
+def contar_caracteres(cadena):
+    return len(cadena)
+
+'''
+Funcion de suma recursiva
+'''
+def suma_recursiva(n):
+    if n == 0:
+        return 0
+    else:
+        return n + suma_recursiva(n - 1)
+
+

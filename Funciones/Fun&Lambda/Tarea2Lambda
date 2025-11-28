@@ -1,0 +1,83 @@
+# 1
+cuadrado = lambda x: x**2
+print("El cuadrado de 5 es:", cuadrado(5))
+
+# 2
+mayor = lambda a, b: a if a > b else b
+print("Numero Mayor:", mayor(10, 20))
+
+# 3
+impar = lambda x: x % 2 != 0
+print("El numero 7 es impar?", impar(7))
+
+# 4
+numeros = [1, 2, 3, 4, 5, 6]
+impares = list(filter(lambda x: x % 2 != 0, numeros))
+print("Numeros impares de la lista:", impares)
+
+# 5
+tuplas = [(1, 2), (3, 4), (5, 6)]
+ordenadas = sorted(tuplas, key=lambda x: x[1])
+print("Tuplas ordenadas por el segundo elemento:", ordenadas)
+
+# 6
+dominio = lambda email : email.split('@')[-1]
+print("Dominio del email:", dominio("usuario@ejemplo.com"))
+
+# Ejercicios avanzados
+
+# 1
+multiplicacion = lambda a, b: a * b
+print("Multiplicacion de 4 y 5:", multiplicacion(4, 5))
+
+# 2
+suma_lista = lambda lista: sum(lista)
+print("Suma de la lista [1, 2, 3, 4]:", suma_lista([1, 2, 3, 4]))
+
+# 3
+comprobar = lambda lista, n: (n in lista, len(lista) == 0)
+print("Comprobar si 3 esta en la lista [1, 2, 3]:", comprobar([1, 2, 3], 3))
+
+# 4
+mayor = lambda lista: max(lista)
+menor = lambda lista: min(lista)
+print("Numero Mayor:", mayor([3, 1, 4, 1, 5, 9]))
+print("Numero Menor:", menor([3, 1, 4, 1, 5, 9]))
+
+# 5
+numeros = [1, 2, 3, 4, 5]
+ascendente = sorted(numeros, key=lambda x: x)
+descendente = sorted(numeros, key=lambda x: -x)
+print("Numeros en orden ascendente:", ascendente)
+print("Numeros en orden descendente:", descendente)
+
+# 6
+lista = ["manzana", "banana", "cereza", "kiwi"]
+fruta = "mango"
+
+if fruta in lista:
+    print("La fruta ya está en la lista.")
+else:
+    lista.append(fruta)
+    print("Fruta añadida. Lista actualizada:", lista)
+
+# 7
+contar = lambda lista: len(lista(filter(lambda x: x < 0, lista)))
+print("Cantidad de numeros negativos en la lista [-1, 2, -3, 4, -5]:", contar([-1, 2, -3, 4, -5]))
+
+# 8
+contarImpar = lambda lista: len(lista(filter(lambda x: x % 2 != 0, lista)))
+print("Cantidad de numeros impares en la lista"(contarImpar[1, 2, 3, 4, 5, 6, 7, 8, 9]))
+
+# 9
+contarVocales = lambda cadena: len(list(filter(lambda x: x.lower() in 'aeiou', cadena)))
+print("Cantidad de vocales en la cadena 'Hola Mundo':", contarVocales("Hola Mundo"))
+
+# 10
+import string
+print("".join(reversed(string.ascii_lowercase)))
+
+# 11
+data = {'a': {'b': {'c': 'hello'}}}
+obtener_hello = lambda d: d['a']['b']['c']
+print("Obtener 'hello' del diccionario anidado:", obtener_hello(data))
